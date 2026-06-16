@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Survey - Analytics Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-theme="light">
+
+  <div class="app-container" style="max-width: 1024px;">
+    <!-- Header Section -->
+    <header>
+      <div class="brand-section">
+        <div class="logo-icon"><i data-lucide="bar-chart-2" style="width: 24px; height: 24px;"></i></div>
+        <div class="brand-title">Analytics Dashboard</div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button class="btn btn-secondary" onclick="window.location.href='index.html'" style="padding: 8px 16px; font-size: 14px;">
+          <i data-lucide="arrow-left"></i> Fill Form
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme">
+          <i data-lucide="moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- STATISTICS OVERVIEW -->
+    <div class="dashboard-grid">
+      <!-- Card 1: Total Responses -->
+      <div class="glass-card stat-card">
+        <div class="stat-icon">
+          <i data-lucide="users"></i>
+        </div>
+        <div>
+          <div class="stat-number" id="stat-total">0</div>
+          <div class="stat-label">Total Submissions</div>
+        </div>
+      </div>
+
+      <!-- Card 2: Daily AI Users % -->
+      <div class="glass-card stat-card">
+        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+          <i data-lucide="zap"></i>
+        </div>
+        <div>
+          <div class="stat-number" id="stat-daily-users">0%</div>
+          <div class="stat-label">Daily AI Users</div>
+        </div>
+      </div>
+
+      <!-- Card 3: Grade Improvement % -->
+      <div class="glass-card stat-card">
+        <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+          <i data-lucide="trending-up"></i>
+        </div>
+        <div>
+          <div class="stat-number" id="stat-grade-improve">0%</div>
+          <div class="stat-label">Agree AI Improves Grades</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHARTS SECTION -->
+    <div class="charts-grid">
+      <!-- Chart 1: AI Usage Frequency -->
+      <div class="glass-card chart-card">
+        <h3 class="chart-title">AI Usage Frequency</h3>
+        <div class="chart-wrapper">
+          <canvas id="chart-q1"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Primary Use Cases -->
+      <div class="glass-card chart-card">
+        <h3 class="chart-title">Primary Use Cases</h3>
+        <div class="chart-wrapper">
+          <canvas id="chart-q2"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 3: Grade Improvement -->
+      <div class="glass-card chart-card">
+        <h3 class="chart-title">Grade Improvement Belief</h3>
+        <div class="chart-wrapper">
+          <canvas id="chart-q3"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 4: reliance on AI -->
+      <div class="glass-card chart-card">
+        <h3 class="chart-title">Reliance for Assignments</h3>
+        <div class="chart-wrapper">
+          <canvas id="chart-q4"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 5: Critical Thinking Reduction -->
+      <div class="glass-card chart-card">
+        <h3 class="chart-title">Does AI Reduce Critical Thinking?</h3>
+        <div class="chart-wrapper">
+          <canvas id="chart-q5"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESPONSES DATA TABLE -->
+    <div class="glass-card table-card">
+      <div class="table-header-row">
+        <h3 class="table-title">Raw Submissions</h3>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <input type="text" class="search-input" id="search-input" placeholder="Search submissions...">
+          <button class="btn btn-primary" id="btn-download-excel" style="padding: 10px 18px; font-size: 14px;">
+            <i data-lucide="file-spreadsheet"></i> Export Excel
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Submission ID</th>
+              <th>1. Frequency</th>
+              <th>2. Primary Use</th>
+              <th>3. Improve Grades?</th>
+              <th>4. Rely on AI?</th>
+              <th>5. Reduce Thinking?</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 40px; color: var(--text-muted);">
+                <i data-lucide="loader-2" class="spin" style="width: 24px; height: 24px; margin-bottom: 8px;"></i>
+                <br>Fetching survey responses from database...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <span id="table-info">Showing 0 of 0 entries</span>
+        <div class="pagination-controls">
+          <button class="page-btn" id="btn-prev-page" disabled><i data-lucide="chevron-left"></i></button>
+          <button class="page-btn" id="btn-next-page" disabled><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 AI Research Survey. Data connected to Google Sheet database.</p>
+  </footer>
+
+  <!-- Loader Backdrop -->
+  <div class="loader-backdrop" id="loader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i data-lucide="info"></i>
+    <span id="toast-message">Dashboard updated!</span>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

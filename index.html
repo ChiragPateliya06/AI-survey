@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Usage Survey</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-theme="light">
+
+  <div class="app-container">
+    <!-- Header Section -->
+    <header>
+      <div class="brand-section">
+        <div class="logo-icon">AI</div>
+        <div class="brand-title">Survey Panel</div>
+      </div>
+      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme">
+        <i data-lucide="moon"></i>
+      </button>
+    </header>
+
+    <!-- Progress Tracker (Sticky) -->
+    <div class="progress-container">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+      <div class="progress-text" id="progress-text">0% Complete</div>
+    </div>
+
+    <!-- MAIN SURVEY FORM -->
+    <form id="survey-form">
+      <!-- Welcome Header Card -->
+      <div class="glass-card form-header-card">
+        <h1>AI Tools in Education</h1>
+        <p>This quick survey gathers insights on how artificial intelligence is changing students' study habits, academic performance, and critical thinking. Your responses are anonymous and will be compiled into the "data for essay" dataset.</p>
+        <div class="metadata-info">
+          <span><i data-lucide="clock" style="width: 16px; height: 16px;"></i> 2 min read</span>
+          <span><i data-lucide="database" style="width: 16px; height: 16px;"></i> 5 questions</span>
+        </div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="glass-card question-card" style="animation-delay: 0.1s;">
+        <h2 class="question-title">
+          <span class="question-num">1.</span> How often do you use AI tools?
+        </h2>
+        <div class="options-container" data-question="q1">
+          <label class="option-label">
+            <input type="radio" name="q1" value="Daily" class="option-input" required>
+            <span class="option-check"></span>
+            <span class="option-text">Daily</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="Weekly" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Weekly</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="Monthly" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Monthly</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="Rarely" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Rarely</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="Never" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Never</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="glass-card question-card" style="animation-delay: 0.2s;">
+        <h2 class="question-title">
+          <span class="question-num">2.</span> What is your primary use of AI tools?
+        </h2>
+        <div class="options-container" data-question="q2">
+          <label class="option-label">
+            <input type="radio" name="q2" value="Studying / Learning" class="option-input" required>
+            <span class="option-check"></span>
+            <span class="option-text">Studying / Learning</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="Writing / Coding" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Writing / Coding</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="Finding Information" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Finding Information</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="Entertainment" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Entertainment</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="Other" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Other</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="glass-card question-card" style="animation-delay: 0.3s;">
+        <h2 class="question-title">
+          <span class="question-num">3.</span> Do AI tools improve your grades?
+        </h2>
+        <div class="options-container" data-question="q3">
+          <label class="option-label">
+            <input type="radio" name="q3" value="Strongly Agree" class="option-input" required>
+            <span class="option-check"></span>
+            <span class="option-text">Strongly Agree</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q3" value="Agree" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Agree</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q3" value="Neutral" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Neutral</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q3" value="Disagree" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Disagree</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q3" value="Strongly Disagree" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Strongly Disagree</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="glass-card question-card" style="animation-delay: 0.4s;">
+        <h2 class="question-title">
+          <span class="question-num">4.</span> Do you rely on AI tools for assignments?
+        </h2>
+        <div class="options-container" data-question="q4">
+          <label class="option-label">
+            <input type="radio" name="q4" value="Always" class="option-input" required>
+            <span class="option-check"></span>
+            <span class="option-text">Always</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q4" value="Often" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Often</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q4" value="Sometimes" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Sometimes</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q4" value="Rarely" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Rarely</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q4" value="Never" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Never</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="glass-card question-card" style="animation-delay: 0.5s;">
+        <h2 class="question-title">
+          <span class="question-num">5.</span> Do AI tools reduce your critical thinking ability?
+        </h2>
+        <div class="options-container" data-question="q5">
+          <label class="option-label">
+            <input type="radio" name="q5" value="Strongly Agree" class="option-input" required>
+            <span class="option-check"></span>
+            <span class="option-text">Strongly Agree</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q5" value="Agree" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Agree</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q5" value="Neutral" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Neutral</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q5" value="Disagree" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Disagree</span>
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q5" value="Strongly Disagree" class="option-input">
+            <span class="option-check"></span>
+            <span class="option-text">Strongly Disagree</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Form Submission Controls -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="btn-view-dashboard" onclick="window.location.href='dashboard.html'">
+          <i data-lucide="bar-chart-2"></i> View Dashboard
+        </button>
+        <button type="submit" class="btn btn-primary" id="btn-submit">
+          Submit Response <i data-lucide="send"></i>
+        </button>
+      </div>
+    </form>
+
+    <!-- Success Screen (Hidden by Default) -->
+    <div class="glass-card success-screen" id="success-screen">
+      <div class="success-icon">
+        <i data-lucide="check"></i>
+      </div>
+      <h2>Thank you!</h2>
+      <p>Your response has been submitted successfully and synced to your <strong>data for essay</strong> sheet.</p>
+      <div class="btn-group-center">
+        <button class="btn btn-secondary" onclick="window.location.reload()">
+          <i data-lucide="refresh-cw"></i> Submit Another Response
+        </button>
+        <button class="btn btn-primary" onclick="window.location.href='dashboard.html'">
+          <i data-lucide="bar-chart-2"></i> View Dashboard & Analytics
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Setup Help / Guide (For the owner) -->
+  <div class="app-container" style="margin-top: 0; padding-top: 0;">
+    <div class="glass-card setup-guide-card">
+      <h3 style="display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="help-circle" style="color: #eab308;"></i> Admin Deploy Guide
+      </h3>
+      <div class="guide-step">
+        <p>To accept submissions and view live data, you must deploy your backend:</p>
+        <ol>
+          <li>Create a Google Sheet named <strong>data for essay</strong>.</li>
+          <li>Click on <strong>Extensions &gt; Apps Script</strong>.</li>
+          <li>Delete any code there and paste the contents of <a href="google_apps_script.js" target="_blank">google_apps_script.js</a>.</li>
+          <li>Click <strong>Deploy &gt; New deployment</strong>. Select type <strong>Web App</strong>. Set "Execute as" to <strong>Me</strong> and "Who has access" to <strong>Anyone</strong>.</li>
+          <li>Copy the Web App URL and paste it in <a href="js/config.js">js/config.js</a>.</li>
+          <li>For GitHub Pages deployment, push these files to your GitHub repository and turn on Pages in your repo settings!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 AI Research Survey. Powered by GitHub Pages & Google Sheets.</p>
+  </footer>
+
+  <!-- Loader Backdrop -->
+  <div class="loader-backdrop" id="loader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i data-lucide="check-circle"></i>
+    <span id="toast-message">Response recorded!</span>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
